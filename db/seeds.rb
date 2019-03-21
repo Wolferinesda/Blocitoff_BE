@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+3.times do
+  User.create!(
+    email: Faker::Internet.unique.email,
+    password: Faker::Internet.unique.password
+  )
+end
+users = User.all
+
+# Create Items
+10.times do
+  Item.create!(
+    user: users.sample,
+    name: Faker::String.random
+  )
+end
+items = Item.all
+
+user = User.first
+user.update_attributes!(
+  email: 'olienad@yahoo.com',
+  password: 'helloworld'
+)
+
+puts "Data generation complete."
+puts "#{User.count} users created."
+puts "#{Item.count} items created."
