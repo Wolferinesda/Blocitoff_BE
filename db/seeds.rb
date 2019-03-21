@@ -17,7 +17,7 @@ users = User.all
 10.times do
   Item.create!(
     user: users.sample,
-    name: Faker::String.random
+    name: Faker::String.random(3..12)
   )
 end
 items = Item.all
