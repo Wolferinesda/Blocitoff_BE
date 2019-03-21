@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     @item = @user.items.new(item_params)
 
     if @item.save
-      flash[:notice] = "Your item was saved successfully! :)"
+      flash[:notice] = "To-Do item: \"#{@item.name.capitalize}\" was saved successfully! :)"
       redirect_to users_show_path
     else
       flash[:alert] = "There was an error saving your item.  Please try again."
