@@ -23,3 +23,20 @@
 .nav {
   margin-top: 10px;
 }
+
+table {
+  counter-reset: rowNumber;
+}
+
+.count:before{
+  counter-increment:rowNumber;
+  content:counter(rowNumber);
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
